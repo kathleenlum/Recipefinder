@@ -15,13 +15,9 @@ inp.on("click", set);
 */
 var userInput = "eggs";
 
-function getUserInput() {
-  userInput = document.getElementById("food").value;
-  console.log("received input", userInput);
-  loadRecipies(userInput);
-}
 
-function loadRecipies(type = userInput) {
+
+function loadRecipies(type = "1 pound of garlic") {
 
   const url = baseURL + `&q=${type}`;
   fetch(url)
@@ -60,18 +56,9 @@ const renderRecipies = (recipeList = []) => {
     const htmlStr = `<a href = "${recipeLink}" class = "recipe-link">
       <div class = "recipe">
         <div class = "recipe-title">${recipeTitle}</div>
-        <div class = "recipe-text-img-parent">
-        <div class = "recipe-text">
-          
-            <ul> 
-            <li>${recipeStepStr} </li>
-            </ul>
-        
-        </div>
         <div class = "recipe-image">
           <img src = "${recipeImage}">
         </div>
-        
         </div>
       </div>
       </a>`;
