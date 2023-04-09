@@ -2,7 +2,7 @@ const appID = "6ecb1dc7";
 const appKey = "5cda4b82bb86fd115996729092ef1557";
 const baseURL = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${appID}&app_key=${appKey}`;
 const recipeContainer = document.querySelector("#recipe-container");
-const txtSearch = document.querySelector("#txtSearch");
+/*const txtSearch = document.querySelector("#txtSearch");
                                          
 txtSearch.addEventListener("keyup", (e) => {
   const inputVal = txtSearch.value;
@@ -10,19 +10,20 @@ txtSearch.addEventListener("keyup", (e) => {
     loadRecipies()
   }
 })
-/*var inp = "paneer";// $('.btn');
+var inp = "paneer";// $('.btn');
 inp.on("click", set);
-function set () {
-  var userInput = $('.input-field').val();
-}
-getUserInput() {
+*/
+var userInput = "eggs";
+
+function getUserInput() {
   userInput = document.getElementById("food").value;
   console.log("received input", userInput);
-}*/
+  loadRecipies(userInput);
+}
 
 
 
-function loadRecipies(type = "pork") {
+function loadRecipies(type = userInput) {
   
   const url=baseURL + `&q=${type}`;
   fetch(url)
