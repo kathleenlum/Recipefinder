@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <!-- wait to load js file until HTML is loaded -->
+  <script src="script.js" defer></script>
+  <!-- link HTML to js file -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <title>Recipe</title>
+</head>
+
+<body>
+  <header>
+    <h2>Recipe Finder</h2>
+    <img class="search-icon" src="images/search.png" alt="Search">
+  </header>
+  <section class="container">
+    <div class="search">
+      <input id="food" class="input-field" type="text" placeholder="search ingredients" autofocus />
+      <button class="btn" onclick="getUserInput()" type="submit">Find</button>
+    </div>
+    <div id="recipe-container">
+      <div class="recipe">
+        <div class="recipe-title">Recipe Title</div>
+        <div class="recipe-text-img-parent">
+          <div class="recipe-text">
+
+            <p>step</p>
+            <p>step</p>
+            <p>step</p>
+            <p>step</p>
+            <p>step</p>
+
+          </div>
+          <div class="recipe-image">
+            <img src="images/default.png" alt="recipe">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="script.js"></script>
+</body>
+
+</html>
