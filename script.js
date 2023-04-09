@@ -21,8 +21,6 @@ function getUserInput() {
   loadRecipies(userInput);
 }
 
-
-
 function loadRecipies(type = userInput) {
   
   const url=baseURL + `&q=${type}`;
@@ -33,6 +31,7 @@ function loadRecipies(type = userInput) {
 }
 loadRecipies();
 const getRecipeStepsStr = (ingredientLines = []) => {
+  // this converts the array of ingredients for each recipe into one string
   let str = "";
   for (var step of ingredientLines) {
     str = str+`<li>${step}</li>`
@@ -40,16 +39,29 @@ const getRecipeStepsStr = (ingredientLines = []) => {
   return str;
 };
 const renderRecipies = (recipeList = []) => {
+  recipeContainer.innerHTML = "";
+  console.log("the list of ingredients", recipeList);
   recipeList.forEach((recipeObj) => {
     const { label:recipeTitle, ingredientLines, image: recipeImage, 
           } = recipeObj.recipe;
     const recipeStepStr = getRecipeStepsStr(ingredientLines);
+    // parse through list of ingredients and check if it contains a keyword from user input
+    count = 0;
+    if(recipeStepStr.includes(userInput)){
+      console.log(recipeStepStr);
+      count++;
+    }
+    console.log("number of count", count);
+    
+    
     const htmlStr = `<div class = "recipe">
         <div class = "recipe-title">${recipeTitle}</div>
         <div class = "recipe-text-img-parent">
         <div class = "recipe-text">
           
-            <p> ${recipeStepStr} </p>
+            <ul> 
+            <li>${recipeStepStr} </li>
+            </ul>
         
         </div>
         <div class = "recipe-image">

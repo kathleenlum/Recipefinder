@@ -5,6 +5,11 @@
     --search-height: 50px;
     --border-color: #ccc;
   }
+  @font-face {
+    font-family: Agane;
+    src: url(Agane.ttf);
+    line-height: 1.7;
+  }
   html {
     height: 100%;
     width: 100%;
@@ -19,6 +24,7 @@
     height: 100vh;
     width: 100vw;
     background: var(--light-color);
+    font-family: 'Agane';
   }
   .container {
     text-align: center;
@@ -44,7 +50,7 @@
     align-items:center;
     height: var(--search-height);
     gap: 10px;
-    box-shadow: 0px 2px 8px 0px var(--border-color);
+    box-shadow: 0px 0px 2px 2px var(--border-color);
   }
   .search-icon {
     height: 20px;
@@ -82,7 +88,7 @@
   .btn:hover {
     background: #007bff;
     border-color: var(--dark-color);
-    color: var(--light-color)
+    color: var(--light-color);
   }
   #recipe-container {
     display: flex;
@@ -99,8 +105,11 @@
     box-shadow: 0px 0px 8px 2px var(--border-color);
     margin: 20px;
     transition: all 200ms ease-in-out;
-    width: 100%;
-    
+    transform: translate(0px, 0px);
+  }
+  .recipe:hover {
+    box-shadow:  5px 8px #e9f5d0;
+    transform: translate(5px, -5px);
   }
   .recipe-title {
     height: 50px;
@@ -109,6 +118,7 @@
     padding-left: 50px;
     padding-top: 50px;
     font-size: 2rem;
+    font-weight: 700;
   }
   
   .recipe-image {
@@ -124,23 +134,31 @@
   .recipe-text {
     height: 120px;
     transition: all 200ms ease-in-out; 
-    padding-top: 20px;
-    overflow: hidden;
-    overflow-y: auto;
+    margin-top: 50px;
+    padding-top: 10px;
     width: 70%;
+    overflow: auto;
     /*transform-origin: top left;*/
   }
   .recipe-text ul {
     display: flex;
     flex-direction: row;
-    list-style-type: circle;
-    list-style-position: inside;
+    list-style: none;
     text-align: left;
-    padding: 5px;
+    justify-content: space-around;
+    flex-flow: wrap;
+    
+  }
+  li {
+    background-color: #d0f5e6;
+    border-radius: 5px;
+    font-weight: 50;
+    margin: 20px;
+    padding-bottom: 0px;
   }
   
   .recipe-text {
-    padding: 5px;
+    padding: 10px;
     display: flex;
     flex-direction: row;
     flex-flow: wrap;
@@ -149,15 +167,8 @@
   .one-ingredient {
     border: 2px black solid;
   }
-  p1 {
-    border: 2px orange solid;
-  }
-  .recipe:hover .recipe-text{
-    height: 120px;
-  }
-  .recipe:hover {
-    height: 420px; 
-  }
+  
+  
   
   .recipe-text-img-parent {
     display: flex;
