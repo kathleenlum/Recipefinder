@@ -14,20 +14,25 @@
 </head>
 
 <body>
-  <div class = "head">
-  <header>
-    <div class = "homenav">
-    <a href = "index.html"><h2>Plate Pal</h2></a>
-    <img class="search-icon" src="images/search.png" alt="Search">
-    </div>
-    <a href = "search.html"><div class = "recipe-search">search</div></a>
-  </header>
+  <div class="head">
+    <header>
+      <div class="homenav">
+        <a href="index.html">
+          <h2>Plate Pal</h2>
+        </a>
+        <img class="search-icon" src="images/pebble.png" alt="Search">
+      </div>
+      <a href="search.html">
+        <div class="recipe-search">search</div>
+      </a>
+    </header>
   </div>
   <section class="container">
     <div class="search">
-      <input id="food" class="input-field" type="text" placeholder="search ingredients" autofocus />
+      <input id="food" class="input-field" type="text" placeholder="Enter ingredients and their quantities" autofocus />
       <button class="btn" onclick="getUserInput()" type="submit">Search</button>
     </div>
+    <!--<h3>results for </h3>-->
     <div id="recipe-container">
       <div class="recipe">
         <div class="recipe-title">Recipe Title</div>

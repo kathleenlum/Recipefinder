@@ -34,34 +34,37 @@ const getRecipeStepsStr = (ingredientLines = []) => {
   }
   return str;
 };
+// bad way to do a for loop but I can't figure it out
+
 const renderRecipies = (recipeList = []) => {
   recipeContainer.innerHTML = "";
   console.log("the list of ingredients", recipeList);
   recipeList.forEach((recipeObj) => {
-    const { label: recipeTitle, ingredientLines, image: recipeImage,
-    } = recipeObj.recipe;
-    console.log("recipeObj: ", recipeObj.recipe.shareAs);
-    const recipeStepStr = getRecipeStepsStr(ingredientLines);
-    const recipeLink = recipeObj.recipe.shareAs;
-    // parse through list of ingredients and check if it contains a keyword from user input
-    // maybe add a thing at the top to display number of search results
-    /* count = 0;
-    if(recipeStepStr.includes(userInput)){
-      console.log(recipeStepStr);
-      count++;
-    }
-    console.log("number of count", count);*/
-
-
-    const htmlStr = `<a href = "${recipeLink}" class = "recipe-link">
-      <div class = "recipe">
-        <div class = "recipe-title">${recipeTitle}</div>
-        <div class = "recipe-image">
-          <img src = "${recipeImage}">
+      // recipeObj is just one recipe
+      const { label: recipeTitle, ingredientLines, image: recipeImage,
+      } = recipeObj.recipe;
+      console.log("recipeObj: ", recipeObj.recipe.shareAs);
+      const recipeStepStr = getRecipeStepsStr(ingredientLines);
+      const recipeLink = recipeObj.recipe.shareAs;
+      // parse through list of ingredients and check if it contains a keyword from user input
+      // maybe add a thing at the top to display number of search results
+      /* count = 0;
+      if(recipeStepStr.includes(userInput)){
+        console.log(recipeStepStr);
+        count++;
+      }
+      console.log("number of count", count);*/
+  
+  
+      const htmlStr = `<a href = "${recipeLink}" class = "recipe-link">
+        <div class = "recipe">
+          <div class = "recipe-title">${recipeTitle}</div>
+          <div class = "recipe-image">
+            <img src = "${recipeImage}">
+          </div>
+          </div>
         </div>
-        </div>
-      </div>
-      </a>`;
-    recipeContainer.insertAdjacentHTML("beforeend", htmlStr);
+        </a>`;
+      recipeContainer.insertAdjacentHTML("beforeend", htmlStr);
   });
 };
